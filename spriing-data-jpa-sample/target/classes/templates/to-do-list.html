@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do App</title>
+    <link href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/style.css" th:href="@{/style.css}" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-4">
+    <h1>TO DO LIST</h1>
+    <form method="post" th:action="@{/api/to-do-list/add}" action="#" >
+        <div class="input-group mb-3">
+            <input name="name" class="form-control" placeholder="Enter Task" required type="text">
+            <input name="dateline" class="form-control" placeholder="Enter Dateline" required type="date">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+    <h1 class="tasks-list">TASKS LIST</h1>
+    <ul class="list-group">
+        <li th:each="it : ${allTasks}" class="list">
+            <input name="name" th:value="${it.name}" type="text">
+            <input name="dateline" th:value="${#dates.format(it.dateline, 'yyy-MM-dd')}" type="date">
+        </li>
+    </ul>
+</div>
+    <script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

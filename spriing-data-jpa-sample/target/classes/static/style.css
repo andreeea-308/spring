@@ -1,0 +1,13 @@
+
+.container {
+    color: deeppink;
+    text-align: center;
+    background-color: skyblue;
+}
+form {
+    width: 50vw;
+    text-align: left;
+}
+.tasks-list {
+    color: darkgreen;
+}
